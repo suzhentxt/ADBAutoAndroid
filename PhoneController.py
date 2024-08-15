@@ -1,5 +1,7 @@
 import subprocess
 
-a = str(subprocess.check_output("adb devices", shell=True)).replace("b'List of devices attached\\r\\n", "").replace("\\tdevice\\r", "").split("\\n")
+def get_devices():
 
-print(a[:-2])
+    a = str(subprocess.check_output("adb devices", shell=True)).replace("b'List of devices attached\\r\\n", "").replace("\\tdevice\\r", "").split("\\n")[:-2]
+    return a
+
