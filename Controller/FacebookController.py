@@ -1,7 +1,7 @@
 from AdbController import *
 import uiautomator2 as u2
 
-class Tiktok(ADB):
+class Facebook(ADB):
     def __init__(self, uid) -> None:
         super().__init__(uid)
         self.uid = uid
@@ -10,8 +10,10 @@ class Tiktok(ADB):
     def post(self, status, img):
         self.driver.app_start(package_name="com.facebook.katana")
 
-        self.do_click_xpath(by_locator='//android.view.ViewGroup[@content-desc="Bạn đang nghĩ gì? Viết bài trên Facebook"]', timeout=100)
-        self.do_sendkeys_class_EditText(timeout=100, content="XIn chaof mn!")
+        self.do_click_xpath(by_locator='//android.view.ViewGroup[@content-desc="Bạn đang nghĩ gì? Viết bài trên Facebook"]', timeout=1000)
+        self.do_sendkeys_class_EditText(timeout=100, content=status)
+        self.do_click_xpath(by_locator='//android.view.ViewGroup[@content-desc="TIẾP"]', timeout=1000)
+        self.do_click_xpath(by_locator='//android.view.ViewGroup[@content-desc="Chia sẻ"]', timeout=1000)
 
     def do_click_xpath(self, by_locator, timeout):
         try:
@@ -43,6 +45,6 @@ class Tiktok(ADB):
                 
         return False
 
-test = Tiktok(uid="emulator-5554")
+test = Facebook(uid="emulator-5554")
 test.post(status="Hello", img="")
 
