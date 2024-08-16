@@ -1,3 +1,5 @@
 .vscode
+platform-tools
+ven-autophone
 Controller/venv-android
 Controller/__pycache__
