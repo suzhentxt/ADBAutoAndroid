@@ -8,9 +8,9 @@ class Tiktok(ADB):
         self.driver = u2.connect(self.uid)
     
     def open(self):
-        self.driver.app_start(package_name="com.ss.android.ugc.trill")
         # print(self.driver.app_list_running())
-
+        self.driver.app_start(package_name="com.ss.android.ugc.trill")
+        
     def do_click_xpath(self, by_locator, timeout):
         try:
             self.driver.xpath(by_locator).click(timeout)
@@ -43,4 +43,3 @@ class Tiktok(ADB):
 
 test = Tiktok(uid="emulator-5554")
 test.open()
-
