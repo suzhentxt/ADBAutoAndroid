@@ -10,6 +10,9 @@ class Tiktok(ADB):
     def open(self):
         # print(self.driver.app_list_running())
         self.driver.app_start(package_name="com.ss.android.ugc.trill")
+
+    def login(self):
+        self.do_click_xpath(by_locator='//android.view.ViewGroup[@resource-id="com.ss.android.ugc.trill:id/i9f"]/android.widget.ImageView[1]', timeout=10000)
         
     def do_click_xpath(self, by_locator, timeout):
         try:
